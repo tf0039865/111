@@ -48,7 +48,8 @@ function createButtons() {
 
 
 function restart() {
-
+   //播放聲音 var voicel = new Audio ("**.wav");
+   //voicel.play();
    t1_f();
    btn.style.display = "none";
    predict();
