@@ -11,7 +11,23 @@ KNN Image Classifier example with p5.js
 
 let knn;
 let video;
-
+const btn = document.getElementById("buttonNew")
+const cdn = document.getElementById("t1")
+var t1_num=5;
+function t1_f(){
+	
+	cdn.innerHTML =  t1_num;
+	if(t1_num==0){
+		cdn.styleSheets.display="none";
+		predict();
+		cleaTimeout(ct);
+	}else{
+		t1_num--;
+		ct = setTimeout(t1_f,1000);
+	}
+	
+	
+}
 function setup() {
   noCanvas();
   video = createCapture(VIDEO).parent('videoContainer');
@@ -33,6 +49,8 @@ function createButtons() {
 
 function restart() {
 
+   t1_f();
+   btn.style.display = "none";
    predict();
 
 }
@@ -69,13 +87,19 @@ function gotResults(results) {
   }
   //select('#result').html(msg);
 
-  setTimeout(function(){
-    predict();
-  }, 50);
+  win_t = setTimeout(win , 3000);
+   
 }
 
 // Clear the data in one class
 function clearClass(classIndex) {
   knn.clearClass(classIndex);
+}
+function win () {
+	cdn.innerHTML ="WIN";
+	cdn.style.display = "";
+	t1_num = 5;
+	document.getElementById("myImg").src ="";
+	 btn.style.display = "";
 }
 

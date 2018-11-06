@@ -11,6 +11,7 @@ KNN Image Classifier example with p5.js
 
 let knn;
 let video;
+const
 
 function setup() {
   noCanvas();
