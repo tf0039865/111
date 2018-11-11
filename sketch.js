@@ -112,17 +112,17 @@ function createButtons() {
     clearClass(8);
     updateExampleCounts();
   });
-  // Predict Button
+  * Predict Button
   buttonPredict = select('#buttonPredict');
   buttonPredict.mousePressed(predict);
 }
 
-// A function to be called when the model has been loaded
+* A function to be called when the model has been loaded
 function modelLoaded() {
   select('#loading').html('Model loaded!');
 }
 
-// Train the Classifier on a frame from the video.
+* Train the Classifier on a frame from the video.
 function train(category) {
   let msg;
   if (category == 1) {
@@ -147,12 +147,12 @@ function train(category) {
   updateExampleCounts();
 }
 
-// Predict the current frame.
+* Predict the current frame.
 function predict() {
   knn.predictFromVideo(gotResults);
 }
 
-// Show the results
+* Show the results
 function gotResults(results) {
   let msg;
 
@@ -175,7 +175,7 @@ function gotResults(results) {
   }
   select('#result').html(msg);
 
-  // Update confidence
+  * Update confidence
   select('#confidenceA').html(results.confidences[1]);
   select('#confidenceB').html(results.confidences[2]);
   select('#confidenceC').html(results.confidences[3]);
@@ -190,12 +190,12 @@ function gotResults(results) {
   }, 50);
 }
 
-// Clear the data in one class
+* Clear the data in one class
 function clearClass(classIndex) {
   knn.clearClass(classIndex);
 }
 
-// Update the example count for each class
+* Update the example count for each class
 function updateExampleCounts() {
   let counts = knn.getClassExampleCount();
   select('#exampleA').html(counts[1]);

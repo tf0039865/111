@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-/* ===
+ *===
 ML5 Example
 KNN_Image
 KNN Image Classifier example with p5.js
@@ -31,7 +31,7 @@ function t1_f(){
 function setup() {
   noCanvas();
   video = createCapture(VIDEO).parent('videoContainer');
-  // Create a KNN Image Classifier
+  * Create a KNN Image Classifier
 
   knn = new ml5.KNNImageClassifier(8, 1, modelLoading, video.elt);
   knn.load('test.json', modelLoaded);
@@ -41,7 +41,7 @@ function setup() {
 
 function createButtons() {
  
-  // Predict Button
+  * Predict Button
   buttonPredict = select('#buttonNew');
   buttonPredict.mousePressed(restart);
 }
@@ -57,7 +57,7 @@ function restart() {
 }
 
 
-// A function to be called when the model has been loaded
+* A function to be called when the model has been loaded
 function modelLoaded() {
   select('#loading').html('猜水果模組載入成功');
 }
@@ -67,12 +67,12 @@ function modelLoading() {
 }
 
 
-// Predict the current frame.
+* Predict the current frame.
 function predict() {
   knn.predictFromVideo(gotResults);
 }
 
-// Show the results
+* Show the results
 function gotResults(results) {
   let msg;
 
@@ -106,7 +106,7 @@ function gotResults(results) {
    
 }
 
-// Clear the data in one class
+* Clear the data in one class
 function clearClass(classIndex) {
   knn.clearClass(classIndex);
 }
